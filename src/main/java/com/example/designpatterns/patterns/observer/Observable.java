@@ -1,4 +1,4 @@
-package com.example.designpatterns.observer;
+package com.example.designpatterns.patterns.observer;
 
 
 public interface Observable {

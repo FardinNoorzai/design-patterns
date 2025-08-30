@@ -1,9 +1,9 @@
 package com.example.designpatterns;
 
-import com.example.designpatterns.observer.DataSource;
-import com.example.designpatterns.observer.DummyUiComponent1;
-import com.example.designpatterns.observer.DummyUiComponent2;
-import com.example.designpatterns.observer.DummyUiComponent3;
+import com.example.designpatterns.patterns.observer.DataSource;
+import com.example.designpatterns.patterns.observer.DummyUiComponent1;
+import com.example.designpatterns.patterns.observer.DummyUiComponent2;
+import com.example.designpatterns.patterns.observer.DummyUiComponent3;
 
 public class DesignPatternsApplication {
 
