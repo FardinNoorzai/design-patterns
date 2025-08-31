@@ -1,6 +1,10 @@
 package com.example.designpatterns;
 
 import com.example.designpatterns.patterns.builder.Computer;
+import com.example.designpatterns.patterns.strategy.CommissionService;
+import com.example.designpatterns.patterns.strategy.CommissionStrategy;
+import com.example.designpatterns.patterns.strategy.CrossProvinceStrategy;
+import com.example.designpatterns.patterns.strategy.VipPartnerStrategy;
 
 public class DesignPatternsApplication {
 
@@ -52,6 +56,14 @@ public class DesignPatternsApplication {
 //
 //        System.out.println(computer1);
 //        System.out.println(computer2);
+
+        // Strategy Pattern
+        CommissionStrategy commissionStrategy1 = new CrossProvinceStrategy();
+        CommissionStrategy commissionStrategy2 = new VipPartnerStrategy();
+
+        CommissionService commissionService = new CommissionService(commissionStrategy1);
+        commissionService.calculateCommission(commissionStrategy2);
+        commissionService.calculateCommission(commissionStrategy1);
 
 
     }
