@@ -1,7 +1,9 @@
 package com.example.designpatterns;
 
+import com.example.designpatterns.patterns.adapter.*;
 import com.example.designpatterns.patterns.decorator.*;
 
+import java.math.BigDecimal;
 import java.util.Map;
 import java.util.UUID;
 
@@ -64,7 +66,8 @@ public class DesignPatternsApplication {
 //        commissionService.calculateCommission(commissionStrategy2);
 //        commissionService.calculateCommission(commissionStrategy1);
 
-//
+
+        // Decorator
 //        NotificationRequest notificationRequest1 = new NotificationRequest();
 //        notificationRequest1.setRequestId(UUID.randomUUID().toString());
 //        notificationRequest1.setChannel("Email");
@@ -88,6 +91,20 @@ public class DesignPatternsApplication {
 //                )
 //        );
 //        sender2.sendNotification(notificationRequest2);
+
+        //Adapter Pattern
+        PaymentGateway naqdpayGateway = new NaqdPayAdapter();
+        PaymentGateway paypalGateway = new PaypalAdapter();
+        PaymentGateway stripeGateway = new StripeAdapter();
+
+        CheckoutService checkoutService = new CheckoutService(paypalGateway);
+        checkoutService.checkout(UUID.randomUUID().toString(), BigDecimal.valueOf(100.56));
+
+        checkoutService.setPaymentGateway(stripeGateway);
+        checkoutService.checkout(UUID.randomUUID().toString(), BigDecimal.valueOf(100.56));
+
+        checkoutService.setPaymentGateway(naqdpayGateway);
+        checkoutService.refund(UUID.randomUUID().toString(), BigDecimal.valueOf(100.56));
 
 
     }
