@@ -1,10 +1,9 @@
 package com.example.designpatterns;
 
-import com.example.designpatterns.patterns.builder.Computer;
-import com.example.designpatterns.patterns.strategy.CommissionService;
-import com.example.designpatterns.patterns.strategy.CommissionStrategy;
-import com.example.designpatterns.patterns.strategy.CrossProvinceStrategy;
-import com.example.designpatterns.patterns.strategy.VipPartnerStrategy;
+import com.example.designpatterns.patterns.decorator.*;
+
+import java.util.Map;
+import java.util.UUID;
 
 public class DesignPatternsApplication {
 
@@ -58,12 +57,37 @@ public class DesignPatternsApplication {
 //        System.out.println(computer2);
 
         // Strategy Pattern
-        CommissionStrategy commissionStrategy1 = new CrossProvinceStrategy();
-        CommissionStrategy commissionStrategy2 = new VipPartnerStrategy();
+//        CommissionStrategy commissionStrategy1 = new CrossProvinceStrategy();
+//        CommissionStrategy commissionStrategy2 = new VipPartnerStrategy();
+//
+//        CommissionService commissionService = new CommissionService(commissionStrategy1);
+//        commissionService.calculateCommission(commissionStrategy2);
+//        commissionService.calculateCommission(commissionStrategy1);
 
-        CommissionService commissionService = new CommissionService(commissionStrategy1);
-        commissionService.calculateCommission(commissionStrategy2);
-        commissionService.calculateCommission(commissionStrategy1);
+//
+//        NotificationRequest notificationRequest1 = new NotificationRequest();
+//        notificationRequest1.setRequestId(UUID.randomUUID().toString());
+//        notificationRequest1.setChannel("Email");
+//        notificationRequest1.setData(Map.of());
+//        notificationRequest1.setTo("example@gmail.com");
+//        NotificationSender sender1 = new RateLimiterDecorator(
+//                new RetryDecorator(
+//                        new EmailSender()
+//                )
+//        );
+//        sender1.sendNotification(notificationRequest1);
+//
+//        NotificationRequest notificationRequest2 = new NotificationRequest();
+//        notificationRequest2.setRequestId(UUID.randomUUID().toString());
+//        notificationRequest2.setChannel("Push");
+//        notificationRequest2.setData(Map.of());
+//        notificationRequest2.setTo("<<Device token>>");
+//        NotificationSender sender2 = new RateLimiterDecorator(
+//                new RetryDecorator(
+//                        new PushSender()
+//                )
+//        );
+//        sender2.sendNotification(notificationRequest2);
 
 
     }
