@@ -2,12 +2,14 @@ package com.example.designpatterns;
 
 import com.example.designpatterns.patterns.adapter.*;
 import com.example.designpatterns.patterns.decorator.*;
+import com.example.designpatterns.patterns.iterator.Iterator;
+import com.example.designpatterns.patterns.iterator.User;
+import com.example.designpatterns.patterns.iterator.UserRepository;
 import com.example.designpatterns.patterns.state.CashDeviceController;
 import com.example.designpatterns.patterns.state.DisconnectedState;
 
 import java.math.BigDecimal;
-import java.util.Map;
-import java.util.UUID;
+import java.util.*;
 
 public class DesignPatternsApplication {
 
@@ -110,13 +112,37 @@ public class DesignPatternsApplication {
 
 
         //State pattern
-        CashDeviceController device = new CashDeviceController(new DisconnectedState());
-        device.open();
-        device.handshake();
-        device.accept();
-        device.close();
-        device.open();
-        device.handshake();
+//        CashDeviceController device = new CashDeviceController(new DisconnectedState());
+//        device.open();
+//        device.handshake();
+//        device.accept();
+//        device.close();
+//        device.open();
+//        device.handshake();
+
+
+        //iterator
+
+        User user1 = new User("John", "Doe");
+        User user2 = new User("Jane", "Doe");
+        User user3 = new User("Alis", "Doe");
+        User user4 = new User("Bob", "Doe");
+        User user5 = new User("Markus", "Doe");
+
+        List<User> users = new ArrayList<User>();
+        users.add(user1);
+        users.add(user2);
+        users.add(user3);
+        UserRepository userRepository = new UserRepository();
+        userRepository.setUsers(users);
+        userRepository.add(user4);
+        userRepository.add(user5);
+
+        Iterator<User> userIterator = userRepository.createIterator();
+        while (userIterator.hasNext()) {
+            User user = userIterator.next();
+            System.out.println(user);
+        }
 
 
     }
