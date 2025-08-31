@@ -2,6 +2,8 @@ package com.example.designpatterns;
 
 import com.example.designpatterns.patterns.adapter.*;
 import com.example.designpatterns.patterns.decorator.*;
+import com.example.designpatterns.patterns.state.CashDeviceController;
+import com.example.designpatterns.patterns.state.DisconnectedState;
 
 import java.math.BigDecimal;
 import java.util.Map;
@@ -93,20 +95,32 @@ public class DesignPatternsApplication {
 //        sender2.sendNotification(notificationRequest2);
 
         //Adapter Pattern
-        PaymentGateway naqdpayGateway = new NaqdPayAdapter();
-        PaymentGateway paypalGateway = new PaypalAdapter();
-        PaymentGateway stripeGateway = new StripeAdapter();
+//        PaymentGateway naqdpayGateway = new NaqdPayAdapter();
+//        PaymentGateway paypalGateway = new PaypalAdapter();
+//        PaymentGateway stripeGateway = new StripeAdapter();
+//
+//        CheckoutService checkoutService = new CheckoutService(paypalGateway);
+//        checkoutService.checkout(UUID.randomUUID().toString(), BigDecimal.valueOf(100.56));
+//
+//        checkoutService.setPaymentGateway(stripeGateway);
+//        checkoutService.checkout(UUID.randomUUID().toString(), BigDecimal.valueOf(100.56));
+//
+//        checkoutService.setPaymentGateway(naqdpayGateway);
+//        checkoutService.refund(UUID.randomUUID().toString(), BigDecimal.valueOf(100.56));
 
-        CheckoutService checkoutService = new CheckoutService(paypalGateway);
-        checkoutService.checkout(UUID.randomUUID().toString(), BigDecimal.valueOf(100.56));
 
-        checkoutService.setPaymentGateway(stripeGateway);
-        checkoutService.checkout(UUID.randomUUID().toString(), BigDecimal.valueOf(100.56));
-
-        checkoutService.setPaymentGateway(naqdpayGateway);
-        checkoutService.refund(UUID.randomUUID().toString(), BigDecimal.valueOf(100.56));
+        //State pattern
+        CashDeviceController device = new CashDeviceController(new DisconnectedState());
+        device.open();
+        device.handshake();
+        device.accept();
+        device.close();
+        device.open();
+        device.handshake();
 
 
     }
+
+
 
 }
