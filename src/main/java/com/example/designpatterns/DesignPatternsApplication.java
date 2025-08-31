@@ -7,6 +7,7 @@ import com.example.designpatterns.patterns.composite.Developer;
 import com.example.designpatterns.patterns.composite.Employee;
 import com.example.designpatterns.patterns.composite.Manager;
 import com.example.designpatterns.patterns.decorator.*;
+import com.example.designpatterns.patterns.facade.LoanFacade;
 import com.example.designpatterns.patterns.iterator.Iterator;
 import com.example.designpatterns.patterns.iterator.User;
 import com.example.designpatterns.patterns.iterator.UserRepository;
@@ -179,6 +180,11 @@ public class DesignPatternsApplication {
 //        balanceChecker.setNext(paymentMethodValidator);
 //
 //        cardValidator.handle(paymentRequest);
+
+
+        //Facade pattern
+        LoanFacade loanFacade = new LoanFacade();
+        loanFacade.applyForLoan("Fardin");
 
 
     }
