@@ -1,10 +1,18 @@
 package com.example.designpatterns;
 
 import com.example.designpatterns.patterns.adapter.*;
+import com.example.designpatterns.patterns.chain.of.responsibility.*;
+import com.example.designpatterns.patterns.composite.Designer;
+import com.example.designpatterns.patterns.composite.Developer;
+import com.example.designpatterns.patterns.composite.Employee;
+import com.example.designpatterns.patterns.composite.Manager;
 import com.example.designpatterns.patterns.decorator.*;
 import com.example.designpatterns.patterns.iterator.Iterator;
 import com.example.designpatterns.patterns.iterator.User;
 import com.example.designpatterns.patterns.iterator.UserRepository;
+import com.example.designpatterns.patterns.proxy.FileReader;
+import com.example.designpatterns.patterns.proxy.FileReaderProxy;
+import com.example.designpatterns.patterns.proxy.SimpleFileReader;
 import com.example.designpatterns.patterns.state.CashDeviceController;
 import com.example.designpatterns.patterns.state.DisconnectedState;
 
@@ -122,27 +130,55 @@ public class DesignPatternsApplication {
 
 
         //iterator
+//        User user1 = new User("John", "Doe");
+//        User user2 = new User("Jane", "Doe");
+//        User user3 = new User("Alis", "Doe");
+//        User user4 = new User("Bob", "Doe");
+//        User user5 = new User("Markus", "Doe");
+//
+//        List<User> users = new ArrayList<User>();
+//        users.add(user1);
+//        users.add(user2);
+//        users.add(user3);
+//        UserRepository userRepository = new UserRepository();
+//        userRepository.setUsers(users);
+//        userRepository.add(user4);
+//        userRepository.add(user5);
+//
+//        Iterator<User> userIterator = userRepository.createIterator();
+//        while (userIterator.hasNext()) {
+//            User user = userIterator.next();
+//            System.out.println(user);
+//        }
 
-        User user1 = new User("John", "Doe");
-        User user2 = new User("Jane", "Doe");
-        User user3 = new User("Alis", "Doe");
-        User user4 = new User("Bob", "Doe");
-        User user5 = new User("Markus", "Doe");
+        //Composite
+//        Employee employee1 = new Developer("Ali","Backend");
+//        Employee employee2 = new Developer("Ahmad","Frontend");
+//        Employee employee3 = new Designer("Shoaib","Designer");
+//        List<Employee> employees = new ArrayList<>();
+//        employees.add(employee1);
+//        employees.add(employee2);
+//        employees.add(employee3);
+//        Employee employee4 = new Manager("Saeed","Manager",employees);
+//        employee4.showDetails();
 
-        List<User> users = new ArrayList<User>();
-        users.add(user1);
-        users.add(user2);
-        users.add(user3);
-        UserRepository userRepository = new UserRepository();
-        userRepository.setUsers(users);
-        userRepository.add(user4);
-        userRepository.add(user5);
+        //Proxy pattern
+//        FileReader fileReader = new SimpleFileReader();
+//        FileReader proxy = new FileReaderProxy(fileReader,"admin1");
+//        proxy.read();
 
-        Iterator<User> userIterator = userRepository.createIterator();
-        while (userIterator.hasNext()) {
-            User user = userIterator.next();
-            System.out.println(user);
-        }
+
+        //Chain of Responsibility
+//        PaymentRequest paymentRequest = new PaymentRequest("12345678","1234",BigDecimal.valueOf(300),"PayPal");
+//        CardValidator cardValidator = new CardValidator();
+//        PinValidator pinValidator = new PinValidator();
+//        BalanceChecker balanceChecker = new BalanceChecker();
+//        PaymentMethodValidator paymentMethodValidator = new PaymentMethodValidator();
+//        cardValidator.setNext(pinValidator);
+//        pinValidator.setNext(balanceChecker);
+//        balanceChecker.setNext(paymentMethodValidator);
+//
+//        cardValidator.handle(paymentRequest);
 
 
     }
